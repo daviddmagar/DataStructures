@@ -2,51 +2,52 @@
 #include <fstream>
 #include <stdio.h>
 #include <vector>
+#include <string>
+
 using namespace std;
 
 
 int main(int argc, char* argv[]) {
 
 	int length = atoi(argv[1]);
-	
 	int counter = 0;
-	
-	cout << length << endl;
-
 	ifstream inputFile(argv[2]);
-	
 	char data;
+	string buffer;
+
 	
-	char array passValue[] 
-	
-	vector <char> name(length);
-	//Get to first letter in file
-	while(!isalpha(data)){
-		inputFile.get(data);
-		}
-	
-	
-	while(!inputFile.eof()){
-				
-		while(counter < length){
-			cout << data;
-			name[counter] = data;
-			counter++;
-			inputFile.get(data);
-			cout << counter << endl;
-		}
 		
-		inputFile.get(data);
-		counter = counter -1;
-
+	while(!inputFile.eof()){
+		while(counter < length){	
+			inputFile.get(data);
+			if(isalpha(data)){
+				buffer.push_back(data);
+				counter++;
+			}
+			else{
+				continue;
+			}
+			
+		}
+		cout << buffer << endl;
+		buffer.erase(0,1);
+		counter = counter-1;	
 	}
-	for (vector<char>::const_iterator i = name.begin(); i != 		name.end(); ++i)
-    std::cout << *i;
+	
+		
+	cout << buffer << endl;
 
-	inputFile.close();
+//	for (vector<char>::const_iterator i = name.begin(); i != 		name.end(); ++i)
+//    std::cout << *i;
+
+//	inputFile.close();
 
 	return 0;
 }
+
+
+
+
 
 int hashWord(string){
 
