@@ -8,20 +8,29 @@ using namespace std;
 
 int wordCount
 ifstream inputFile
-std::vector<string> inputData;
 char data;
 
 int main(int argc, char* argv[]) {
 	inputFile.open(argv[2]);
 	string buffer;
 	
-	while(!inputFile.eof()){		
+	while(!inputFile.eof()){
 		inputFile.get(data);
-
-		if(data == '\n'){
-			continue;
+		cout << buffer;
+		if(!isalpha[data]){
+			inputFile.get(data);
+			buffer.clear();
 		}
-		buffer.push_back(data)
+		buffer.push_back(data);
+	}
+	
+	return 0
+}
+			
+		
+		
+		
+		
 
 
 
