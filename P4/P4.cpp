@@ -5,6 +5,7 @@
 #include <string>
 #include <utility>
 #include <algorithm>
+#include <sstream>
 
 
 
@@ -27,15 +28,19 @@ int main(int argc, char* argv[]) {
     int biagrams = 0;
     int wordCount = 0;
 	string word;
+    string number;
 	int occurences = 0;
 	int counter = 1;
 	
 	while(inputFile >> buffer) {
-		if(counter%2 = 0){
+		if(counter%2 == 0){
 			word = buffer;
 		}
 		else{
-			occurences = buffer;
+			number = buffer;
+            stringstream toNum(number);
+            toNum >> occurences;
+            
 		}
 		counter++;
 		cout << buffer << endl;
